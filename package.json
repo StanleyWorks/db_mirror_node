@@ -1,5 +1,5 @@
 {
-  "name": "db_sync",
+  "name": "db_mirror",
   "version": "0.1.0",
   "description": "A simple tool that allows DBs to be copied.",
   "type": "module",

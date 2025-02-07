@@ -72,7 +72,14 @@ const main = async () => {
 
 				// Copy data
 				const data = await connectionPrimary(table.TABLE_NAME).select();
-				await connectionSecondary(table.TABLE_NAME).insert(data);
+
+				data.forEach(async (row) => {
+					try {
+						await connectionSecondary(table.TABLE_NAME).insert(row);
+					} catch (err) {
+						log(`Error inserting row ${err}`)
+					}
+				})
 				log(`Copied data to table: ${table.TABLE_NAME}`);
 			} catch (err) {
 				log(`Error processing table ${table.TABLE_NAME}: ${err}`);

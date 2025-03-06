@@ -1,9 +1,6 @@
 import { log } from 'console';
-import { config } from 'dotenv';
+import 'dotenv/config';
 import knex from 'knex';
-
-// config dotenv
-config();
 
 const connectionInfoSchema = knex({
 	client: 'mysql2',
